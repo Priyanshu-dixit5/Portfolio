@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu Dixit | AI & ML Developer Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        /* Corrected Logo as requested */
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 100px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #fff 0%, #f1f5f9 100%);
+        }
+
+        .hero-content { flex: 1; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 15px; }
+        .hero-content h1 span { color: var(--primary); }
+        .hero-content p { font-size: 1.1rem; color: var(--gray); margin-bottom: 25px; max-width: 600px; }
+
+        .profile-img-container { flex: 1; display: flex; justify-content: flex-end; }
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: var(--primary);
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- Detailed About Section --- */
+        .section { padding: 80px 10%; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .about-box { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
+        .about-box.green { border-left-color: var(--secondary); }
+        .about-box h3 { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .skill-tag { background: #e2e8f0; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; }
+
+        /* --- Projects Section --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .project-info { padding: 25px; }
+        .project-info h3 { margin-bottom: 10px; color: var(--primary); }
+        .project-info p { font-size: 0.9rem; color: var(--gray); margin-bottom: 20px; height: 60px; }
+
+        /* --- Certifications Gallery --- */
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .cert-card { background: white; padding: 15px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .cert-card img { width: 100%; border-radius: 10px; border: 1px solid #eee; margin-bottom: 15px; }
+
+        /* --- Shared Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: var(--dark); transform: scale(1.05); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+        /* --- Footer --- */
+        footer { background: var(--dark); color: white; padding: 60px 10%; text-align: center; }
+        .footer-socials { margin: 25px 0; }
+        .footer-socials a { color: white; font-size: 1.8rem; margin: 0 15px; transition: 0.3s; }
+        .footer-socials a:hover { color: var(--primary); }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 50px; }
+            .profile-img-container { justify-content: center; margin-top: 50px; }
+            .profile-img { width: 250px; height: 250px; }
+            .about-grid, .cert-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Priyanshu Dixit</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Priyanshu Dixit</span></h1>
+            <p>A BCA Student and AI/ML Developer passionate about creating intelligent solutions and analyzing geospatial data.</p>
+            <div class="btns">
+                <a href="YOUR_RESUME_LINK" class="btn"><i class="fas fa-file-pdf"></i> Download CV</a>
+                <a href="#contact" class="btn btn-outline" style="margin-left: 10px;">Get in Touch</a>
+            </div>
+        </div>
+        <div class="profile-img-container">
+            <img src="profile.jpg" alt="Priyanshu Dixit" class="profile-img">
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="about-grid">
+            <div class="about-box">
+                <h3><i class="fas fa-university"></i> Education & Profile</h3>
+                <p>I am currently a <strong>BCA Final Year Student</strong>. My core interests are in <strong>Artificial Intelligence and Machine Learning</strong>, specifically bridging the gap between hardware and smart software solutions.</p>
+                <div class="skills-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">AI/ML</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Flask/Django</span>
+                    <span class="skill-tag">IoT (ESP32)</span>
+                </div>
+            </div>
+            <div class="about-box green">
+                <h3><i class="fas fa-briefcase"></i> Experience & Training</h3>
+                <p><strong>RSAC Internship:</strong> Focused on <strong>Flood Prediction and Classification</strong> using satellite imagery and geospatial analysis.</p>
+                <p><strong>NIELIT Training:</strong> Completed industrial training in AI, ML, and GUI development.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects" style="background: #fff;">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Flood Prediction (RSAC)</h3>
+                    <p>ML-based analysis and classification of flood zones conducted during my RSAC internship.</p>
+                    <a href="https://github.com/Priyanshu-dixit5" class="btn" target="_blank">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Intruder Detection System</h3>
+                    <p>Security-focused project inspired by defense systems using hardware sensors and object classification.</p>
+                    <a href="https://github.com/Priyanshu-dixit5" class="btn" target="_blank">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Bagpack & Trip Planner</h3>
+                    <p>AI-powered travel assistant to organize itineraries and packing lists.</p>
+                    <a href="https://github.com/Priyanshu-dixit5" class="btn" target="_blank">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Budget Analyzer</h3>
+                    <p>Tool to track, analyze, and visualize personal financial spending patterns.</p>
+                    <a href="https://github.com/Priyanshu-dixit5" class="btn" target="_blank">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Chatting Application</h3>
+                    <p>Full-stack real-time communication platform for seamless messaging.</p>
+                    <a href="https://github.com/Priyanshu-dixit5" class="btn" target="_blank">View GitHub</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="certs">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <img src="rsac-cert.jpg" alt="RSAC Internship Certificate">
+                <h3>Internship Completion</h3>
+                <p>Remote Sensing Application Centre (RSAC)</p>
+            </div>
+            <div class="cert-card">
+                <img src="nielit-cert.jpg" alt="NIELIT Training Certificate">
+                <h3>Industrial Training</h3>
+                <p>National Institute of Electronics & Information Technology (NIELIT)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="font-size: 2rem;">Get In Touch</h2>
+        <p>Currently open to internships and collaborative AI projects.</p>
+        <p style="margin-top: 10px;">Email: <strong>priyanshudixit768@gmail.com</strong></p>
+        
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/priyanshu-dixit-46aa932b5" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Priyanshu-dixit5" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:priyanshudixit768@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        
+        <p style="opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Priyanshu Dixit | BCA Portfolio</p>
+    </footer>
+
+</body>
+</html>
